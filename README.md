@@ -11,7 +11,7 @@ npm install -g licon
 Or install locally and link:
 
 ```bash
-cd E:\dev-ref\licon
+cd /path/to/licon
 npm install
 npm link
 ```
@@ -26,60 +26,92 @@ licon setup
 
 Or simply run any command - it will guide you through setup if not configured.
 
-## Commands for AI Agents
+## Commands
 
-### Get SVG text (for embedding directly in code)
+### Search icons
 ```bash
-licon get arrow-right
+licon search <query>              # Default: 5 results, names only
+licon search <query> -v           # Show category and tags
+licon search <query> -n 10         # Custom result limit
+licon search <query>,             # Multiple queries (comma-separated)
 ```
-Output: Raw SVG string that can be embedded directly.
+
+**Query syntax:**
+- `licon search settings` - Single keyword
+- `licon search settings,gear` - Separate searches, outputs marked with [keyword]
+- `licon search settings gear` - AND search (icons matching all terms)
+
+**Output:**
+```
+[settings] 390 results:
+settings
+settings-2
+calendar-cog
+wrench
+columns-3-cog
+```
+
+### Get SVG for embedding
+```bash
+licon get <name>                  # Single icon
+licon get <name1> <name2>        # Multiple icons
+licon get <name> --format json   # JSON output
+```
+
+**Output (default):**
+```svg
+<!-- settings [account] -->
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="..."/>
+</svg>
+```
+
+**Output (JSON):**
+```json
+{"name":"settings","svg":"<svg ..."}
+```
+
+**Multiple icons:**
+```svg
+<!-- settings [account] -->
+<svg>...</svg>
+---
+<!-- search [text, social] -->
+<svg>...</svg>
+```
 
 ### Save SVG to file
 ```bash
-licon save arrow-right --output ./icons/
+licon save <name> --output ./icons/
 ```
-Output: `Saved: ./icons/arrow-right.svg`
-
-### Search icons by name, tags, or category
-```bash
-licon search "arrow right"
-```
-Output:
-```
-Found 5 icons matching "arrow right":
-arrow-right [navigation] (tags: next, forward, direction)
-arrow-up-right [navigation] (tags: external, open, link)
-...
-```
-
-### List all available icons
-```bash
-licon list
-```
-Output: `icon-name [category] (tags: tag1, tag2)`
-
-### Browse icons by category
-```bash
-licon cat navigation
-```
-Output: Lists all icons in the "navigation" category.
+Output: `Saved: ./icons/<name>.svg`
 
 ### Convert to different format (PNG, WebP, SVG)
 ```bash
-licon convert arrow-right --format png --output ./icons/
-licon convert arrow-right --format webp --output ./icons/
+licon convert <name> --format png --output ./icons/
+licon convert <name> --format webp --output ./icons/
 ```
 Requires `sharp` npm package for PNG/WebP conversion.
 
+### List all icons
+```bash
+licon list
+```
+
+### Browse by category
+```bash
+licon cat <category>    # List icons in category
+licon categories        # List all categories
+```
+
 ### Update local lucide repository
 ```bash
-licon upgrade
+licon upgrade          # git pull in lucide directory
 ```
-Runs `git pull` in the lucide repository directory.
 
 ## Interactive Mode (Human Use)
 
-Simply run `licon` without arguments to enter interactive picker mode:
+Simply run `licon` without arguments:
 ```bash
 licon
 ```
@@ -101,65 +133,53 @@ Config stored at `~/.licon.json`:
 
 ## Workflow Examples
 
-### Scenario 1: Agent knows the icon name
+### Agent knows the icon name
 ```
 Agent: I need an arrow-right icon
 Action: licon get arrow-right
-Result: SVG text output, embedded in code
+Result: SVG output with header comment
 ```
 
-### Scenario 2: Agent doesn't know the icon name
+### Agent doesn't know the icon name
 ```
-Agent: I need an icon for "settings"
-Action: licon search settings
-Result: List of matching icons with names/tags
-Agent: picks "settings" from list
-Action: licon get settings
-Result: SVG text output, embedded in code
+Action: licon search arrow
+Result: List of matching icon names
+Action: licon get arrow-right
+Result: SVG output
 ```
 
-### Scenario 3: Save icon as file
+### Multiple icons
 ```
-Agent: Save the "settings" icon to ./src/icons/
-Action: licon save settings --output ./src/icons/
-Result: File saved at ./src/icons/settings.svg
+Action: licon get settings search user
+Result: SVG for each icon, separated by ---
 ```
 
-### Scenario 4: Need PNG for display
+### Multiple searches
 ```
-Agent: Convert "settings" icon to PNG
-Action: licon convert settings --format png --output ./public/icons/
-Result: File saved at ./public/icons/settings.png
+Action: licon search settings,gear
+Result:
+[settings] 390 results:
+settings
+settings-2
+...
+---
+[gear] 815 results:
+gear
+cog
+...
 ```
 
 ## Agent System Prompt
 
-When setting up a coding agent, include this instruction:
-
-**Version 1 - Always use SVG (strict):**
 ```
-When you need to use an icon in code, ALWAYS use licon to get SVG icons instead of emoji.
-1. Search icons: licon search <keywords>
+ICON RULE: When you need an icon in code, UI, or documentation, ALWAYS use licon.
+
+1. Search: licon search <keywords>
 2. Get SVG: licon get <icon-name>
 3. Embed the SVG directly in your code
 
-Never use emoji as icons.
-```
+Multiple icons: licon get icon1 icon2 icon3
+JSON output: licon get <name> --format json
 
-**Version 2 - Use SVG when appropriate (flexible):**
-```
-When you need an icon, prefer using licon to get SVG icons:
-1. Search icons: licon search <keywords>
-2. Get SVG: licon get <icon-name>
-3. Save to file: licon save <icon-name> --output <path>
-
-Use SVG icons for:
-- UI elements that need consistent styling
-- Icons that need to match design system
-- Cases where emoji would look inconsistent
-
-You may use emoji for:
-- Simple text communication
-- Placeholder content
-- When explicitly requested
+NEVER use emoji as icons.
 ```
