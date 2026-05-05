@@ -1,10 +1,13 @@
 {
-  "name": "licon",
+  "name": "@epheiamoe/licon",
   "version": "1.0.0",
   "description": "CLI tool for fetching Lucide icons - designed for AI agents and developers",
   "type": "module",
   "bin": {
     "licon": "./dist/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build": "tsc",

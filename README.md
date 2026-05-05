@@ -5,7 +5,7 @@ CLI tool for fetching Lucide icons - designed for AI agents and human developers
 ## Installation
 
 ```bash
-npm install -g licon
+npm install -g @epheiamoe/licon
 ```
 
 Or install locally and link:

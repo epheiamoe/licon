@@ -41,6 +41,6 @@ licon upgrade                 # git pull lucide repo
 Not configured? Clone and setup:
 ```bash
 git clone https://github.com/lucide-icons/lucide.git
-npm install -g licon
+npm install -g @epheiamoe/licon
 licon setup                   # enter path to cloned lucide/
 ```
