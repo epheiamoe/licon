@@ -5,94 +5,42 @@ description: Use Lucide SVG icons instead of emoji for all icon needs in code, U
 
 # Lucide Icons Skill (Always Use SVG)
 
-This skill ensures you always use Lucide SVG icons instead of emoji when adding visual elements to code, UI, or documentation.
-
-## Setup
-
-Install licon globally:
-```bash
-npm install -g licon
-```
-
-Or use directly without installation:
-```bash
-npx -y github:epheiamoe/licon get <icon-name>
-```
-
-Configure your local lucide repository:
-```bash
-licon setup
-```
+Pre-configured. Run `licon get <name>` to get SVG.
 
 ## Commands
 
-### Search for icons
-
+### Search
 ```bash
-licon search <query>        # Default: 5 results, names only
-licon search <query> -v     # Show category and tags
-licon search <query> -n 10  # Custom result limit
-licon search <query>,       # Multiple queries (comma-separated)
+licon search <query>          # 5 results, names only
+licon search <query> -v       # show category and tags
+licon search <query> -n 10    # custom limit
+licon search a,b              # separate searches (comma)
+licon search a b              # AND search (space)
 ```
 
-**Query syntax:**
-- `licon search settings` - Single keyword
-- `licon search settings,gear` - Separate searches, outputs marked with [keyword]
-- `licon search settings gear` - AND search (icons matching all terms)
-
-**Output:**
-```
-[settings] 390 results:
-settings
-settings-2
-calendar-cog
-wrench
-columns-3-cog
-```
-
-### Get SVG for embedding
-
+### Get SVG
 ```bash
-licon get <name>                    # Single icon
-licon get <name1> <name2>           # Multiple icons
-licon get <name> --format json     # JSON output
+licon get <name>              # single, output: <!-- name [cat] --> <svg>...
+licon get a b c               # multiple, separated by ---
+licon get <name> -f json      # JSON: {"name":"...","svg":"<svg..."}
 ```
 
-**Output (default):**
-```svg
-<!-- settings [account] -->
-<svg xmlns="http://www.w3.org/2000/svg" ...>
-```
-
-**Output (JSON):**
-```json
-{"name":"settings","svg":"<svg ..."}
-```
-
-### Other useful commands
-
+### Other
 ```bash
-licon list                    # List all icons
-licon cat <category>          # List icons in category
-licon categories              # List all categories
-licon upgrade                 # Update lucide repo
+licon save <name> -o <path>   # save to file
+licon convert <name> -f png   # requires sharp
+licon upgrade                 # git pull lucide repo
 ```
 
 ## Critical Rule
 
-**NEVER use emoji as icons in code.** Always use licon to fetch SVG icons.
+**Never use emoji as icons. Always use licon.**
 
-## Example System Prompt
+## From Scratch
 
-```
-ICON RULE: When you need an icon in code, UI, or documentation, ALWAYS use licon.
-
-1. Search: licon search <keywords>
-2. Get SVG: licon get <icon-name>
-3. Embed the SVG directly in your code
-
-Multiple icons: licon get icon1 icon2 icon3
-JSON output: licon get <name> --format json
-
-NEVER use emoji as icons.
+Not configured? Clone and setup:
+```bash
+git clone https://github.com/lucide-icons/lucide.git
+npm install -g licon
+licon setup                   # enter path to cloned lucide/
 ```
