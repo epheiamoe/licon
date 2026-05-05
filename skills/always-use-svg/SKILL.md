@@ -35,6 +35,8 @@ licon upgrade                 # git pull lucide repo
 ## Critical Rule
 
 **Never use emoji as icons. Always use licon.**
+**Never read SVG files directly** (breaks workflow, permission prompts).
+Always run: `licon search`, `licon get`, `licon save`.
 
 ## From Scratch
 
