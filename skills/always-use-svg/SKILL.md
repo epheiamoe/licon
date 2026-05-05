@@ -9,14 +9,7 @@ This skill ensures you always use Lucide SVG icons instead of emoji when adding 
 
 ## Setup
 
-First, configure the lucide repository path:
-
-```bash
-licon setup
-```
-
-If you haven't installed licon yet, install it globally:
-
+Install licon globally:
 ```bash
 npm install -g licon
 ```
@@ -26,41 +19,80 @@ Or use directly without installation:
 npx -y github:epheiamoe/licon get <icon-name>
 ```
 
+Configure your local lucide repository:
+```bash
+licon setup
+```
+
 ## Commands
 
-### Getting SVG Icons (For Embedding in Code)
+### Search for icons
 
-When you need an icon:
-
-**1. Search for the icon name:**
 ```bash
-licon search <keywords>
+licon search <query>        # Default: 5 results, names only
+licon search <query> -v     # Show category and tags
+licon search <query> -n 10  # Custom result limit
+licon search <query>,       # Multiple queries (comma-separated)
 ```
 
-**2. Get the SVG text:**
-```bash
-licon get <icon-name>
+**Query syntax:**
+- `licon search settings` - Single keyword
+- `licon search settings,gear` - Separate searches, outputs marked with [keyword]
+- `licon search settings gear` - AND search (icons matching all terms)
+
+**Output:**
+```
+[settings] 390 results:
+settings
+settings-2
+calendar-cog
+wrench
+columns-3-cog
 ```
 
-This outputs raw SVG that you can embed directly in your code.
+### Get SVG for embedding
 
-**3. List all available icons:**
 ```bash
-licon list
+licon get <name>                    # Single icon
+licon get <name1> <name2>           # Multiple icons
+licon get <name> --format json     # JSON output
+```
+
+**Output (default):**
+```svg
+<!-- settings [account] -->
+<svg xmlns="http://www.w3.org/2000/svg" ...>
+```
+
+**Output (JSON):**
+```json
+{"name":"settings","svg":"<svg ..."}
+```
+
+### Other useful commands
+
+```bash
+licon list                    # List all icons
+licon cat <category>          # List icons in category
+licon categories              # List all categories
+licon upgrade                 # Update lucide repo
 ```
 
 ## Critical Rule
 
-**NEVER use emoji as icons in code.** When the user asks for an icon, or you need to add visual elements to UI, you MUST use Lucide SVG icons via licon.
+**NEVER use emoji as icons in code.** Always use licon to fetch SVG icons.
 
 ## Example System Prompt
 
 ```
-ICON RULE: When you need to use an icon in code, UI, or documentation, ALWAYS use licon to fetch SVG icons.
+ICON RULE: When you need an icon in code, UI, or documentation, ALWAYS use licon.
 
 1. Search: licon search <keywords>
 2. Get SVG: licon get <icon-name>
 3. Embed the SVG directly in your code
 
-NEVER use emoji as icons. Only use emoji in plain text communication.
+Multiple icons: licon get icon1 icon2 icon3
+JSON output: licon get <name> --format json
+
+NEVER use emoji as icons.
 ```

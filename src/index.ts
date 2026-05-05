@@ -24,12 +24,12 @@ program
   .action(() => setupCommand());
 
 program
-  .command('get <name>')
-  .description('Get SVG text for an icon (for AI embedding)')
-  .option('-f, --format <format>', 'Output format: svg (default), jsx, vue, svelte')
-  .action((name, options) => {
+  .command('get <names...>')
+  .description('Get SVG text for icon(s) (for AI embedding)')
+  .option('-f, --format <type>', 'Output format: svg (default), json')
+  .action((names, options) => {
     const config = getConfig();
-    getCommand(name, options, config);
+    getCommand(names, options, config);
   });
 
 program
@@ -52,9 +52,11 @@ program
 program
   .command('search <query>')
   .description('Search icons by name, tags, or category')
-  .action((query) => {
+  .option('-n, --limit <num>', 'Number of results to show (default: 5)', '5')
+  .option('-v, --verbose', 'Show category and tags')
+  .action((query, options) => {
     const config = getConfig();
-    searchCommand(query, config);
+    searchCommand(query, options, config);
   });
 
 program
