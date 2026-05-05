@@ -49,6 +49,10 @@ export function getCommand(names: string[], options: { format?: string }, config
   const format = options.format || 'svg';
   const iconsDir = config.iconsDir || path.join(config.repoPath, 'icons');
   
+  if (names.length === 1 && (names[0].includes(' ') || names[0].includes(','))) {
+    names = names[0].split(/[ ,]+/).filter(n => n);
+  }
+  
   for (let i = 0; i < names.length; i++) {
     const name = names[i];
     const iconPath = path.join(iconsDir, `${name}.svg`);
