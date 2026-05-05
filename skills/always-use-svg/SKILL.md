@@ -5,7 +5,7 @@ description: Use Lucide SVG icons instead of emoji for all icon needs in code, U
 
 # Lucide Icons Skill (Always Use SVG)
 
-Pre-configured. Run `licon get <name>` to get SVG.
+Pre-configured, no installation needed. Run `licon get <name>` to get SVG.
 
 ## Commands
 
@@ -37,12 +37,3 @@ licon upgrade                 # git pull lucide repo
 **Never use emoji as icons. Always use licon.**
 **Never read SVG files directly** (breaks workflow, permission prompts).
 Always run: `licon search`, `licon get`, `licon save`.
-
-## From Scratch
-
-Not configured? Clone and setup:
-```bash
-git clone https://github.com/lucide-icons/lucide.git
-npm install -g @epheiamoe/licon
-licon setup                   # enter path to cloned lucide/
-```
