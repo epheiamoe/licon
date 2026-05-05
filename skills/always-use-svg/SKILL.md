@@ -15,9 +15,9 @@ Run: `licon get <name>` to get SVG.
 licon search <query>          # 5 results, names only
 licon search <query> -v       # show category and tags
 licon search <query> -n 10    # custom limit
-licon search a,b              # separate searches (comma)
-licon search a b              # AND search (space)
+licon search a b              # multiple keywords (space or comma)
 ```
+Separate keywords with space or comma for individual searches.
 
 ### Get SVG
 ```bash

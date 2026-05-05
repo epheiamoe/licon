@@ -36,8 +36,12 @@ export function searchCommand(query: string, options: { limit?: number; verbose?
   const verbose = options.verbose || false;
   const iconList = getIconList(config);
   
-  if (query.includes(',')) {
-    const keywords = query.split(',').map(k => k.trim()).filter(k => k);
+  const hasComma = query.includes(',');
+  const hasSpace = query.includes(' ');
+  
+  if (hasComma || hasSpace) {
+    const sep = hasComma ? ',' : ' ';
+    const keywords = query.split(sep).map(k => k.trim()).filter(k => k);
     for (let i = 0; i < keywords.length; i++) {
       const keyword = keywords[i];
       const results = fuzzy.filter(keyword, iconList, {
@@ -57,24 +61,6 @@ export function searchCommand(query: string, options: { limit?: number; verbose?
         console.log('---');
       }
     }
-    return;
-  }
-  
-  if (query.includes(' ')) {
-    const keywords = query.split(' ').filter(k => k);
-    const results = fuzzy.filter(query, iconList, {
-      extract: (item) => item.searchText
-    }) as any[];
-    
-    console.log(`[AND: ${keywords.join(' ')}] ${results.length} results:\n`);
-    results.slice(0, limit).forEach((result: any) => {
-      const icon = result.original;
-      if (verbose) {
-        console.log(`${icon.name} [${icon.cats}]${icon.tags ? ` (${icon.tags})` : ''}`);
-      } else {
-        console.log(icon.name);
-      }
-    });
     return;
   }
   
