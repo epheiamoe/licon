@@ -26,11 +26,19 @@ licon get a b c               # multiple, separated by ---
 licon get <name> -f json      # JSON: {"name":"...","svg":"<svg..."}
 ```
 
+### Save to file
+```bash
+licon save <name> -o <path>      # single
+licon save a b -o ./icons/       # multiple
+licon save <name> -f png         # convert to PNG (requires sharp)
+licon save <name> -o <path> -f png  # convert + save to dir
+```
+ 
 ### Other
 ```bash
-licon save <name> -o <path>   # save to file
-licon convert <name> -f png   # requires sharp
-licon upgrade                 # git pull lucide repo
+licon upgrade              # git pull lucide repo
+licon list                 # list all icons
+licon cat <category>       # browse by category
 ```
 
 ## Critical Rule

@@ -33,12 +33,13 @@ program
   });
 
 program
-  .command('save <name>')
+  .command('save <names...>')
   .description('Save icon SVG to a file')
   .option('-o, --output <path>', 'Output directory (default: current directory)')
-  .action((name, options) => {
+  .option('-f, --format <type>', 'Output format: svg (default), png, webp')
+  .action(async (names, options) => {
     const config = getConfig();
-    saveCommand(name, options, config);
+    await saveCommand(names, options, config);
   });
 
 program

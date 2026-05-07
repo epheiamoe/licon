@@ -1,0 +1,126 @@
+{
+  "sections": [
+    {
+      "name": "入门指南",
+      "topics": [
+        {
+          "level": "初学",
+          "title": "概览",
+          "description": "licon 是一个为 AI Agent 和开发者设计的 Lucide 图标 CLI 工具。它让你无需离开终端就能搜索、获取、保存和转换来自 Lucide 图标库的 SVG 图标。",
+          "task": "阅读 README.md 和 package.json，用表格对比 licon 所有命令的用途与典型使用场景。引用 SKILL.md 中的 AI Agent 规则。概述项目定位：专为 AI Agent 设计，强调直接输出 SVG 而非文件操作。"
+        },
+        {
+          "level": "初学",
+          "title": "快速开始",
+          "description": "5 分钟内完成从安装到获取第一个图标的完整流程。包括全局安装、lucide 仓库克隆、初始化配置和基本命令使用。",
+          "task": "给出从零开始的完整步骤：npm install -g → 克隆 lucide → licon setup → licon search → licon get。每个步骤配代码块。强调 setup 是前提，交互模式直接运行 licon 即可。引用 src/commands/setup.ts 的 ensureSetup 逻辑。"
+        },
+        {
+          "type": "group",
+          "title": "基础命令"
+        },
+        {
+          "level": "初学",
+          "title": "搜索图标",
+          "description": "使用 licon search 按名称、分类或标签模糊搜索图标。支持单关键词、逗号分隔的多查询和空格分隔的 AND 查询。",
+          "task": "详细说明 search 命令的三种查询语法：单词、逗号分隔的多搜索、空格分隔的 AND 搜索。解释 -v（显示分类与标签）和 -n（限制结果数）选项。引用 src/commands/search.ts 中 fuzzy.filter 的核心逻辑和 getIconList 的缓存机制。给出实际输出示例。"
+        },
+        {
+          "level": "初学",
+          "title": "获取 SVG",
+          "description": "使用 licon get 获取一个或多个图标的 SVG 代码，可直接嵌入 HTML 或代码中。支持 SVG 和 JSON 两种输出格式。",
+          "task": "分场景说明 get 命令：单个图标、多个图标（空格分隔）、--format json 输出。解释输出格式中的 <!-- name [category] --> 注释。引用 src/commands/get.ts 中 outputIcon 函数和 getIconMeta 的缓存逻辑。强调 get 是为 AI Agent 内嵌设计的关键命令。"
+        },
+        {
+          "level": "中级",
+          "title": "保存与转换",
+          "description": "使用 licon save 将图标保存为 .svg 文件，或使用 licon convert 将图标转换为 PNG、WebP 格式。转换依赖 sharp 库。",
+          "task": "讲解 save（直接复制 SVG 文件）和 convert（可选格式 svg/png/webp）的用法。引用 src/commands/save.ts 的文件复制逻辑和 src/commands/convert.ts 中 sharp 的可选依赖处理。说明 --output 参数的使用。给出保存到指定目录的案例。"
+        },
+        {
+          "level": "初学",
+          "title": "浏览与管理",
+          "description": "使用 licon list 列出所有图标，licon cat 按分类浏览，licon categories 查看可用分类，licon upgrade 更新本地 lucide 仓库。",
+          "task": "逐一解释 list（总数+名称+分类）、cat（按分类过滤）、categories（读取 categories/ 目录）、upgrade（git pull）四个命令。引用 src/commands/list.ts、cat.ts、upgrade.ts。强调这些命令帮助用户发现和探索图标库。"
+        },
+        {
+          "level": "中级",
+          "title": "交互模式",
+          "description": "直接运行 licon 无参数进入交互式图标选择器。支持模糊搜索、按分类浏览和预览 SVG。专为人类使用者设计，无需记忆命令。",
+          "task": "详解交互模式的完整流程：启动 → 搜索/列表/分类浏览 → 选择编号 → 预览 SVG。引用 src/commands/interactive.ts 中 readline 循环和 fuzzy.filter 搜索的实现。与命令行模式对比适用场景。注意无参数时自动判断：未配置则走 setup，已配置则走交互模式。"
+        }
+      ]
+    },
+    {
+      "name": "深入探索",
+      "topics": [
+        {
+          "type": "group",
+          "title": "架构核心"
+        },
+        {
+          "level": "中级",
+          "title": "配置系统",
+          "description": "licon 通过 ~/.licon.json 管理本地 lucide 仓库路径。config.ts 提供配置的读取、保存、验证和路径解析功能。",
+          "task": "分析 src/config.ts 中 Config 接口、getConfig/saveConfig/configExists/isValidRepo/getConfigPath 五个函数的职责。说明配置存储位置和结构。解释 setup 命令如何交互式收集路径并验证 icons/ 和 categories/ 目录存在。强调 ensureSetup 是各命令的前置守卫。"
+        },
+        {
+          "level": "中级",
+          "title": "命令注册与调度",
+          "description": "index.ts 使用 Commander.js 注册所有命令，处理无参数时的自动跳转逻辑。是 CLI 的入口与路由中心。",
+          "task": "分析 src/index.ts 中 Commander 的 program.name/description/version 设置，各 command 的注册模式（参数定义、选项、action 回调），以及 process.argv.length === 2 时的自动跳转逻辑。列出所有命令及其对应模块。引用 commander 包的 version 12.x。"
+        },
+        {
+          "type": "group",
+          "title": "核心实现"
+        },
+        {
+          "level": "高级",
+          "title": "搜索引擎实现",
+          "description": "search 命令基于 fuzzy 库实现模糊搜索。支持单查询、逗号分隔多查询和空格分隔 AND 查询。缓存图标列表以提升性能。",
+          "task": "深入分析 src/commands/search.ts 中 cachedIconList 缓存、getIconList 函数（遍历 JSON 元数据构建搜索索引）、三种查询解析逻辑（hasComma/hasSpace）。解释 fuzzy.filter 的 extract 回调如何将 name/cats/tags 拼接为 searchText。讨论缓存失效与 searchText 设计。"
+        },
+        {
+          "level": "高级",
+          "title": "SVG 读取与元数据缓存",
+          "description": "get 命令从 lucide 仓库的 icons/ 目录读取 .svg 文件和同名 .json 元数据。使用两级缓存优化频繁访问。",
+          "task": "分析 src/commands/get.ts 中 getIconMeta 的缓存逻辑（cachedIconMeta: Map<string, {cats, tags}>），以及 getCommand 中 names 参数的智能分割（支持空格/逗号）。解释 SVG 输出的注释格式（<!-- name [category] -->）和 JSON 输出格式。关联 clearGetCache 的导出用途。"
+        },
+        {
+          "level": "高级",
+          "title": "格式转换实现",
+          "description": "convert 命令利用 sharp 库将 SVG 光栅化为 PNG/WebP。内部包含可选依赖检查和异步转换流程。",
+          "task": "分析 src/commands/convert.ts 中 sharp 的可选 require 模式、异常处理、格式分支（svg/png/webp）、异步 Buffer 转换流程（sharp(svg).png()/webp().toBuffer()）。说明为什么 SVG 格式直接复制文件而非通过 sharp。讨论 PNG/WebP 的默认参数与局限性。"
+        },
+        {
+          "level": "高级",
+          "title": "交互终端实现",
+          "description": "交互模式使用 Node.js readline 构建循环式 CLI 界面。整合搜索、分类浏览、列表展示和 SVG 预览功能。",
+          "task": "分析 src/commands/interactive.ts 中 readline.createInterface + Promise 封装（askQuestion）、主 while 循环中的四个分支（quit/list/cat <category>/搜索）、fuzzy 搜索结果的分页展示（前10个）、数字选择后的 SVG 输出。讨论输入验证、退出处理和与 setup 命令的集成（首次运行流程）。"
+        },
+        {
+          "type": "group",
+          "title": "扩展与集成"
+        },
+        {
+          "level": "高级",
+          "title": "添加新命令",
+          "description": "licon 的模块化架构使添加新命令非常简单。只需创建新的命令文件、实现导出函数，并在 index.ts 中注册。",
+          "task": "从零开始写一个添加新命令的完整教程：1) 在 src/commands/ 新建文件 2) 实现带 config 参数的导出函数 3) 在 index.ts 中用 program.command 注册 4) 配置选项和 action 回调。以示例命令 'info'（显示图标详情）为案例。引用现有命令（如 save.ts）作为模板。"
+        },
+        {
+          "level": "中级",
+          "title": "AI Agent 集成",
+          "description": "licon 专门为 AI Agent 优化了输出格式。SKILL.md 定义了使用规则，确保 Agent 始终使用 licon 而非 emoji 或文件读取。",
+          "task": "解释 skills/always-use-svg/SKILL.md 的内容和设计意图。分析 README.md 中的 Agent System Prompt 模板。说明为什么 Agent 应使用 licon get 而非直接读取 SVG 文件（权限、路径问题）。讨论输出格式（带注释的 SVG / JSON）如何简化 Agent 的解析工作。"
+        },
+        {
+          "level": "中级",
+          "title": "构建与发布",
+          "description": "licon 使用 TypeScript 编译、npm 打包发布。了解构建脚本、package.json 配置和 npm 发布流程。",
+          "task": "分析 package.json 中 build（tsc）、prepack、postinstall 脚本。解释 tsconfig.json 的 ESNext module + ES2022 target 配置。说明 bin 字段如何将 licon 命令映射到 dist/index.js。给出 npm publish 的完整步骤（构建 → 版本号 → npm publish --access public）。讨论 publishConfig 的作用。"
+        }
+      ]
+    }
+  ]
+}

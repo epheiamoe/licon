@@ -1,0 +1,550 @@
+{
+  "浏览与管理": {
+    "E:\\dev-ref\\licon\\src\\commands\\save.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\convert.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "src/commands/get.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "README.md": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "package.json": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\setup.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\package.json": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "src/commands/search.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\list.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\cat.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\upgrade.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\config.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "src/index.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "src/config.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\index.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\README.md": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "skills/always-use-svg/SKILL.md": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "svg-读取与元数据缓存.md": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "ai-agent-集成.md": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\search.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\get.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\docs\\格式转换实现.md": [
+      [
+        1,
+        999999
+      ]
+    ]
+  },
+  "交互模式": {
+    "src/commands/interactive.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "src/index.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "src/config.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "src/commands/setup.ts": [
+      [
+        1,
+        999999
+      ]
+    ]
+  },
+  "配置系统": {
+    "src/commands/setup.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "src/commands/search.ts": [
+      [
+        1,
+        999999
+      ]
+    ]
+  },
+  "命令注册与调度": {
+    "E:\\dev-ref\\licon\\src\\config.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\index.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\setup.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "src/commands/list.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "src/commands/cat.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\package.json": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\get.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\search.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\interactive.ts": [
+      [
+        1,
+        999999
+      ]
+    ]
+  },
+  "搜索引擎实现": {
+    "E:\\dev-ref\\licon\\src\\commands\\save.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\list.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\cat.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\convert.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\upgrade.ts": [
+      [
+        1,
+        999999
+      ]
+    ]
+  },
+  "svg-读取与元数据缓存": {
+    "E:\\dev-ref\\licon\\src\\commands\\search.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "src/commands/get.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\config.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\index.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\package.json": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "src/index.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\node_modules\\fuzzy\\lib\\fuzzy.js": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "skills/always-use-svg/SKILL.md": [
+      [
+        1,
+        999999
+      ]
+    ]
+  },
+  "交互终端实现": {
+    "src/commands/convert.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\interactive.ts": [
+      [
+        1,
+        90
+      ]
+    ],
+    "src/commands/interactive.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "src/commands/save.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "src/index.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "package.json": [
+      [
+        1,
+        999999
+      ]
+    ]
+  },
+  "添加新命令": {
+    "src/commands/setup.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "src/config.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "src/index.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\skills\\always-use-svg\\SKILL.md": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\index.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon/package.json": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "README.md": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\index.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\save.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\search.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\get.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\setup.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\cat.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\list.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\config.ts": [
+      [
+        1,
+        999999
+      ]
+    ]
+  },
+  "ai-agent-集成": {
+    "E:\\dev-ref\\licon\\package.json": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\upgrade.ts": [
+      [
+        1,
+        999999
+      ]
+    ]
+  },
+  "构建与发布": {
+    "E:\\dev-ref\\licon\\skills\\always-use-svg\\SKILL.md": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\README.md": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\get.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\package.json": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\tsconfig.json": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\convert.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\setup.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\config.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\index.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\interactive.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\dist\\index.js": [
+      [
+        1,
+        5
+      ]
+    ],
+    "E:\\dev-ref\\licon\\.npmignore": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\search.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\src\\commands\\save.ts": [
+      [
+        1,
+        999999
+      ]
+    ],
+    "E:\\dev-ref\\licon\\.gitignore": [
+      [
+        1,
+        999999
+      ]
+    ]
+  }
+}
